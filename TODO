@@ -14,8 +14,8 @@
 
 - Change IIS Settings
 - Change Firewall Settings
-- Window Service
-- Change Environment Variables
+- Window Service  (Hankai - Doing)
+- Change Environment Variables (Xiaodao - Done)
 - Configuration Files
 
 * Description for environment with Ruby (refer to Chef)
