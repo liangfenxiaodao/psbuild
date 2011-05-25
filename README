@@ -1,0 +1,23 @@
+This goal of this project is to apply Chef for environment configuration management on Windows Platform for .NET project.         
+                               
+Let's take a development team for example.
+
+The team has:
+
+* 30 dev machines
+* 20 CI agents
+* 10 QA machines
+
+The team is facing the problem that:
+
+1. The team is adding more and more team members, and the ghost mirror doesn't suit for all machines, so we wasted a lot of time setting up environment for each new team member or new CI agent.
+
+2. As time passed, the development environment is changing, e.g. .NET version is upgraded from 3.5 to 4.0, AppFabric is introduced to do session management, etc. Every time one change happens, we need to apply the change on every dev/qa machine and CI agents. This process is time consuming and error-prone.  
+
+In order to resolve those problems, the team has to manage environment configuration with scripts.
+
+The steps are:
+
+1. Write PowerShell scripts to install software, install Windows updates, update IIS settings, install/uninstall Windows services, change firewall settings, etc.
+
+2. Integrate the PowerShell scripts with Chef
