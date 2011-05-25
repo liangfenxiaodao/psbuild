@@ -1,0 +1,25 @@
+* Install required software with powershell
+
+- .NET Framework
+- Sql Server
+- VS 2010
+- Resharper
+- Asp.net MVC
+- VCS(Hg, Git)
+- Editors
+- Firefox(including plugins)
+- Java, Python……
+
+* Change environment settings with powershell
+
+- Change IIS Settings
+- Change Firewall Settings
+- Window Service
+- Change Environment Variables
+- Configuration Files
+
+* Description for environment with Ruby (refer to Chef)
+
+* Different Roles have different configuration settings (refer to Chef)
+
+* Manage all the machines with PowerShell's invoke-command
