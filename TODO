@@ -5,16 +5,19 @@
 - VS 2010
 - Resharper
 - Asp.net MVC
-- VCS(Hg, Git)
+- VCS - Hg, Git
 - Editors
-- Firefox(including plugins)
-- Java, Python……
+- Firefox- including plugins
+- Java
+- CI agent
+- CI Server
+- Python (xiaodao & hankai - Done)
 
 * Change environment settings with powershell
 
 - Change IIS Settings
-- Change Firewall Settings
-- Window Service  (Hankai - Doing)
+- Change Firewall Settings  (Xiaodao - doing)
+- Window Service (Hankai - Doing)
 - Change Environment Variables (Xiaodao - Done)
 - Configuration Files
 
