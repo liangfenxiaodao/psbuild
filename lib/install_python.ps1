@@ -25,5 +25,5 @@ Function Wait-For-Python-Install($pythonLogPath) {
 Function Python-Install-Completed($pythonLogPath) {
 	 $log = ""
 	 get-content "c:\python.log" | % { $log += $_ }
-	 $log.Contains("completed successfully.")
+	 $log.Contains("completed successfully.")      
 }
