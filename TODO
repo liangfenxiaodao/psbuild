@@ -6,17 +6,20 @@
 - Resharper
 - Asp.net MVC
 - VCS - Hg, Git
-- Editors
-- Firefox- including plugins(xiaodao - doing)
+- Firefox(xiaodao - Done)
+- Firefox plugin(xiaodao - Doing)
+- Notepad ++ (xiaodao - Done)
 - Java
 - CI agent
 - CI Server
 - Python (xiaodao & hankai - Done)
+- AppFabric 
 
 * Change environment settings with powershell
 
 - Change IIS Settings
-- Change Firewall Settings  (Xiaodao - doing)
+- Disable/Enable Firewall  (Xiaodao - Done)
+- Add/Remove Firewall Rules (Xiaodao - Blocked)
 - Window Service (Hankai - Doing)
 - Change Environment Variables (Xiaodao - Done)
 - Configuration Files
