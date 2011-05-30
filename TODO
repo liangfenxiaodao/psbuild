@@ -7,20 +7,23 @@
 - Asp.net MVC
 - VCS - Hg, Git
 - Firefox(xiaodao - Done)
-- Firefox plugin(xiaodao - Blocked)
-- 7zip (xiaodao - Doing)
+- Firefox plugin
+
+- 7zip
+- Curl (xiaodao)
+
 - Notepad ++ (xiaodao - Done)
 - Java
 - CI agent
 - CI Server
 - Python (xiaodao & hankai - Done)
-- AppFabric 
+- AppFabric (xiaodao & lixin - needs to add firewall rules)
 
 * Change environment settings with powershell
 
 - Change IIS Settings
 - Disable/Enable Firewall  (Xiaodao - Done)
-- Add/Remove Firewall Rules (Xiaodao - Blocked)
+- Add/Remove Firewall Rules (Xiaodao - Blocked by AppFabric)
 - Window Service (Hankai - Doing)
 - Change Environment Variables (Xiaodao - Done)
 - Configuration Files
