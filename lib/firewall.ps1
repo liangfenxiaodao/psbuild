@@ -21,6 +21,14 @@ Function Enable-All-Profiles {
 	}
 }
 
+Function Disable-Active-Profile {
+	$fw.FireWallEnabled($fw.CurrentProfileTypes) = $false
+}
+
+Function Enable-Active-Profile {
+	$fw.FireWallEnabled($fw.CurrentProfileTypes) = $true
+}
+
 Function Get-EnabledRules {
 	$fw.rules | Where-Object {$_.enabled} | Sort-Object -Property direction | `
 		Format-Table -Property @{label="Direction"; expression= {$FwDirection[$_.direction]}}, name, `
