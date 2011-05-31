@@ -4,7 +4,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\unblock_file.ps1
 
 Function Install-Curl($curlZipFile, $installToDir) {
-	If(!(Path-Contains "curl")) {
+	Execute-If-Path-Not-Contains "curl" {
 		Unzip $curlZipFile $installToDir
 		Add-To-Path "$installToDir;"
 		Unblock-File "$installToDir\curl.exe"
