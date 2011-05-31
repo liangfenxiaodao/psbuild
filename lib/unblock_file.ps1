@@ -1,3 +1,5 @@
 Function Unblock-File($file) {
-	iex "cmd /c 'echo . > $file:Zone.Identifier'"
+        $fileZone = "$file" + ":Zone"
+	iex "cmd /c 'echo . > $fileZone.Identifier'"
 }
+
