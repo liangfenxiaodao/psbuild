@@ -10,7 +10,7 @@
 - Firefox plugin
 
 - 7zip
-- Curl (xiaodao)
+- Curl (xiaodao -Done)
 
 - Notepad ++ (xiaodao - Done)
 - Java
@@ -21,12 +21,14 @@
 
 * Change environment settings with powershell
 
-- Change IIS Settings
+- Change IIS Settings(Hankai - Doing)
 - Disable/Enable Firewall  (Xiaodao - Done)
 - Add/Remove Firewall Rules (Xiaodao - Blocked by AppFabric)
-- Window Service (Hankai - Doing)
+- Window Service (Maochao - Doing)
 - Change Environment Variables (Xiaodao - Done)
 - Configuration Files
+
+* Unit test Framework (Hankai - Done)
 
 * Description for environment with Ruby (refer to Chef)
 
