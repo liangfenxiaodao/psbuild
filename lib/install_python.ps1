@@ -9,7 +9,7 @@ Function Install-Python27($pythonInstallKit) {
 	New-Item $pythonLogPath -type file
 	iex "$pythonInstallKit /quiet /li $pythonLogPath"
 	Wait-For-Python-Install $pythonLogPath
-	Add-To-Environment-Path "$pythonInstallDir;"
+	Add-To-Path "$pythonInstallDir;"
 }
 
 Function Wait-For-Python-Install($pythonLogPath) {

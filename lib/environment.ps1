@@ -1,13 +1,17 @@
-Function Add-To-Environment-Path($pathToBeAdded) {
-	Add-To-Environment "Path" $pathToBeAdded
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+. $scriptDir\string.ps1
+
+Function Add-To-Path($pathToBeAdded) {
+	$path = [environment]::GetEnvironmentVariable("Path","Machine")
+	if(!(Contains-IgnoreCase($path, $pathToBeAdded))) {
+		if(!$path.EndsWith(";")) {
+			$pathToBeAdded = ";$valueToBeAdded"
+		}
+		[Environment]::SetEnvironmentVariable("Path", $path+$pathToBeAdded, "Machine")
+	}
 }
 
-Function Add-To-Environment($variableName, $valueToBeAdded) {
-    $value = [environment]::GetEnvironmentVariable($variableName,"Machine")
-	if(!$value.Contains($valueToBeAdded)) {
-		if(!$value.EndsWith(";")) {
-			$valueToBeAdded = ";$valueToBeAdded"
-		}
-		[Environment]::SetEnvironmentVariable($variableName, $value+$valueToBeAdded, "Machine")
-	}
+Function Path-Contains($pathToBeAdded) {
+	$path = [environment]::GetEnvironmentVariable("Path","Machine")
+	return Contains-IgnoreCase $path $pathToBeAdded
 }
