@@ -4,7 +4,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Function Add-To-Path($pathToBeAdded) {
 	$path = [environment]::GetEnvironmentVariable("Path","Machine")
 	if(!$path.EndsWith(";")) {
-		$pathToBeAdded = ";$valueToBeAdded"
+		$path = "$path;"
 	}
 	[Environment]::SetEnvironmentVariable("Path", $path+$pathToBeAdded, "Machine")
 }

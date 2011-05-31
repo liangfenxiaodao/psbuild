@@ -7,21 +7,27 @@
 - Asp.net MVC
 - VCS - Hg, Git
 - Firefox(xiaodao - Done)
-- Firefox plugin(xiaodao - Doing)
+- Firefox plugin(xiaodao - Blocked)
 
-- 7zip
+- 7zip (wangrui)
 - Curl (xiaodao -Done)
 
 - Notepad ++ (xiaodao - Done)
-- Java
+- Java (wangrui)
 - CI agent
 - CI Server
 - Python (xiaodao & hankai - Done)
 - AppFabric (xiaodao & lixin - needs to add firewall rules)
 
+- disable IE 8 welcome screen ( lijian - doing)
+- disable firefox / ie /chrome/opera/safari checking default browser
+
 * Change environment settings with powershell
 
 - Change IIS Settings(Hankai - Doing)
+  - Add/Remove WebSite
+  - Add/Remove WebApplication
+  - WebSite/WebApplication configration
 - Disable/Enable Firewall  (Xiaodao - Done)
 - Add/Remove Firewall Rules (Xiaodao - Blocked by AppFabric)
 - Window Service (Maochao - Doing)
