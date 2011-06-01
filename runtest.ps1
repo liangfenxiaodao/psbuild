@@ -14,15 +14,22 @@ Function Match-Test($testName, $parterns) {
 }
 
 Function Run-Test($testFile) {
-    . $testFile.FullName
+	. $testFile.FullName
 }
 
-$tests = ls -path "$root\test" -filter *Test.ps1
+$tests = ls -path "$root\test" -filter *Test.ps1 -ErrorAction SilentlyContinue
+
+if (!$tests) {
+	Write-Warning "No Test found in test folder."
+	exit
+}
+
 if ($args.Length -gt 0) {
     $parterns = $args
     $tests | ? { Match-Test $_ $parterns } | % { Run-Test $_ } 
-} else {
-    $tests | %{ Run-Test $_ } 
+} 
+else {
+    $tests | % { Run-Test $_ } 
 }
 
 
