@@ -6,20 +6,27 @@
 - Resharper
 - Asp.net MVC
 - VCS - Hg, Git
+
 - Firefox(xiaodao - Done)
+
 - Firefox plugin(xiaodao - Blocked)
 
 - 7zip (wangrui)
+
 - Curl (xiaodao -Done)
 
 - Notepad ++ (xiaodao - Done)
+
 - Java (wangrui)
 - CI agent
 - CI Server
+
 - Python (xiaodao & hankai - Done)
+
 - AppFabric (xiaodao & lixin - needs to add firewall rules)
 
-- disable IE 8 welcome screen ( lijian - doing)
+- disable IE 8 welcome screen ( xiaodao - Done)
+
 - disable firefox / ie /chrome/opera/safari checking default browser
 
 * Change environment settings with powershell

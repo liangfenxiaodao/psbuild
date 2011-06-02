@@ -6,7 +6,10 @@ $python27InstallKit = "python-2.7.1.msi"
 $pythonLogPath = "c:\python.log"
 		
 Function Install-Python27 {
-	If(Python-Installed) { return }
+	If(Python-Installed) { 
+		Write-Host "Python is already installed on this computer, will by pass Python installation"
+		return 
+	}
 	
 	Download-Python27
 	Prepare-LogFile
