@@ -7,9 +7,9 @@
 - Asp.net MVC
 - VCS - Hg, Git
 
-- Firefox(xiaodao - Done)
+- Firefox (xiaodao - Done)
 
-- Firefox plugin(xiaodao - Blocked)
+- Firefox plugin (xiaodao - Blocked)
 
 - 7zip (wangrui)
 
@@ -27,7 +27,7 @@
 
 - disable IE 8 welcome screen ( xiaodao - Done)
 
-- disable firefox / ie /chrome/opera/safari checking default browser
+- disable firefox / ie /chrome/opera/safari checking default browser (blocked)
 
 * Change environment settings with powershell
 
@@ -35,8 +35,11 @@
   - Add/Remove WebSite
   - Add/Remove WebApplication
   - WebSite/WebApplication configration
+
 - Disable/Enable Firewall  (Xiaodao - Done)
+
 - Add/Remove Firewall Rules (Xiaodao - Blocked by AppFabric)
+
 - Window Service (Maochao - Doing)
 - Change Environment Variables (Xiaodao - Done)
 - Configuration Files
