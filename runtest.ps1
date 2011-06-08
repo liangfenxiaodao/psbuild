@@ -40,4 +40,5 @@ else {
     $tests | % { Run-Test $_ } 
 }
 
-
+Write-TestReport
+Exit-WithCode
