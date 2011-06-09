@@ -1,9 +1,12 @@
 * Install required software with powershell
 
+- Add/remove feature(xiaodao - doing)
+- Add/remove role
+
 - .NET Framework
-- Sql Server
-- VS 2010
-- Resharper
+- Sql Server(canceled)
+- VS 2010(canceled)
+- Resharper(canceled)
 - Asp.net MVC
 - VCS - Hg, Git
 

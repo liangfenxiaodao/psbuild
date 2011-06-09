@@ -1,0 +1,5 @@
+Given window 2008 R2 with sp1 installed
+
+1. Add Features: .NET 3.5, IIS, Process Activation Service
+
+2. Add Roles: IIS => Application Development => Install Asp.net
