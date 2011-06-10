@@ -1,4 +1,5 @@
-. c:\workspace\chef.net\lib\string.ps1
+$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+. "$root\..\lib\string.ps1"
 
 Describe "Check string contain ignore case" {
     it "check string contain ignore case" {
