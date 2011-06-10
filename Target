@@ -4,6 +4,42 @@ Given window 2008 R2 with sp1 installed
 
 2. Add Roles: IIS => Application Development => Install Asp.net
 
+
+Display Name                                            Name
+------------                                            ----
+[X] Web Server (IIS)                                    Web-Server
+    [X] Web Server                                      Web-WebServer
+        [X] Common HTTP Features                        Web-Common-Http
+            [X] Static Content                          Web-Static-Content
+            [X] Default Document                        Web-Default-Doc
+            [X] Directory Browsing                      Web-Dir-Browsing
+            [X] HTTP Errors                             Web-Http-Errors
+        [X] Application Development                     Web-App-Dev
+            [X] ASP.NET                                 Web-Asp-Net
+            [X] .NET Extensibility                      Web-Net-Ext
+            [X] ISAPI Extensions                        Web-ISAPI-Ext
+            [X] ISAPI Filters                           Web-ISAPI-Filter
+        [X] Health and Diagnostics                      Web-Health
+            [X] HTTP Logging                            Web-Http-Logging
+            [X] Request Monitor                         Web-Request-Monitor
+        [X] Security                                    Web-Security
+            [X] Request Filtering                       Web-Filtering
+        [X] Performance                                 Web-Performance
+            [X] Static Content Compression              Web-Stat-Compression
+    [X] Management Tools                                Web-Mgmt-Tools
+        [X] IIS Management Console                      Web-Mgmt-Console
+[X] .NET Framework 3.5.1 Features                       NET-Framework
+    [X] .NET Framework 3.5.1                            NET-Framework-Core
+[X] Remote Server Administration Tools                  RSAT
+    [X] Role Administration Tools                       RSAT-Role-Tools
+        [X] Web Server (IIS) Tools                      RSAT-Web-Server
+[X] Telnet Client                                       Telnet-Client
+[X] Windows Process Activation Service                  WAS
+    [X] Process Model                                   WAS-Process-Model
+    [X] .NET Environment                                WAS-NET-Environment
+    [X] Configuration APIs                              WAS-Config-APIs
+
+
 3. IIS
 
 * Create Self-Signed Certificate
