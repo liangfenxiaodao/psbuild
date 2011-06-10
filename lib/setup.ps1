@@ -1,1 +1,1 @@
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted -Force

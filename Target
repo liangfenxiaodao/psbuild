@@ -15,3 +15,12 @@ Given window 2008 R2 with sp1 installed
 * Add Default Document (default.aspx, Default.htm, Default.asp, index.html..)
 
 * Application Pool => Advanced Settings => Process model => Identity (NetworkService)
+
+4. Firewall
+
+* new InBound Rule => Allow port 1433
+
+5. Sql Server
+
+* new login (MyTaxes:pwc123#) => map to Acom db, make it db_owner
+* Document DB: refer to https://10.18.7.11:8443/svn/#{projectname}/Doc/Deployment/Deployment%20Notes
