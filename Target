@@ -33,7 +33,6 @@ Display Name                                            Name
 [X] Remote Server Administration Tools                  RSAT
     [X] Role Administration Tools                       RSAT-Role-Tools
         [X] Web Server (IIS) Tools                      RSAT-Web-Server
-[X] Telnet Client                                       Telnet-Client
 [X] Windows Process Activation Service                  WAS
     [X] Process Model                                   WAS-Process-Model
     [X] .NET Environment                                WAS-NET-Environment
