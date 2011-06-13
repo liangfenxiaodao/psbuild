@@ -25,3 +25,35 @@ Describe "invoke Set-WebAppPoolManagedPipelineMode with valid parameter" {
     }
 
 }
+
+Describe "invoke Set-WebAppPoolManagedRuntimeVersion with valid parameter" {
+    It "if Version is not supported by OS, then nothing happened" {
+        New-WebAppPool $testAppPoolName -force
+        Set-WebAppPoolManagedRuntimeVersion $testAppPoolName "invalid_version"
+        
+        $testAppPool = ls "IIS:\AppPools" | ? {$_.Name -eq $testAppPoolName } 
+        $testAppPool.managedRuntimeVersion.should.be("v2.0")
+
+        Remove-WebAppPool $testAppPoolName
+    }
+  
+    It "set managedRuntimeVersion to v4.0" {
+        New-WebAppPool $testAppPoolName -force
+        Set-WebAppPoolManagedRuntimeVersion $testAppPoolName "v4.0"
+        
+        $testAppPool = ls "IIS:\AppPools" | ? {$_.Name -eq $testAppPoolName } 
+        $testAppPool.managedRuntimeVersion.should.be("v4.0")
+
+        Remove-WebAppPool $testAppPoolName
+    }
+    
+    It "set managedRuntimeVersion to 'No Managed Code'" {
+        New-WebAppPool $testAppPoolName -force
+        Set-WebAppPoolManagedRuntimeVersion $testAppPoolName "no managed"
+        
+        $testAppPool = ls "IIS:\AppPools" | ? {$_.Name -eq $testAppPoolName } 
+        $testAppPool.managedRuntimeVersion.should.be("")
+
+        Remove-WebAppPool $testAppPoolName
+     }
+}
