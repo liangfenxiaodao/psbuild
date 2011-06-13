@@ -1,3 +1,5 @@
+# The functions listed in this file are mainly copyed from http://blogs.technet.com/b/jamesone/archive/2009/02/18/how-to-manage-the-windows-firewall-settings-with-powershell.aspx and http://msdn.microsoft.com/en-us/library/aa364709%28VS.85%29.aspx
+
 $FwprofileTypes= @{1="Domain"; 2="Private" ; 4="Public"}
 $FwAction      = @{1="Allow"; 0="Block"}
 $FwDirection   = @{1="Inbound"; 2="outbound"; "Inbound"=1;"outbound"=2} 
@@ -46,6 +48,28 @@ Function Get-FirewallConfig {
                   @{name="Default In"       ;expression={$FwAction[$fw.DefaultInboundAction($_)]}},
                   @{Name="Default Out"      ;expression={$FwAction[$fw.DefaultOutboundAction($_)]}} `
             | Format-Table -auto
+}
+
+Function Add-FirewallRule {
+   	param( 
+      	$name,
+      	$tcpPorts,
+      	$appName = $null,
+      	$serviceName = $null
+   	)
+    $rule = New-Object -ComObject HNetCfg.FWRule
+        
+    $rule.Name = $name
+    if ($appName -ne $null) { $rule.ApplicationName = $appName }
+    if ($serviceName -ne $null) { $rule.serviceName = $serviceName }
+    $rule.Protocol = 6 #NET_FW_IP_PROTOCOL_TCP
+    $rule.LocalPorts = $tcpPorts
+    $rule.Enabled = $true
+    $rule.Profiles = $fw.CurrentProfileTypes
+    $rule.Action = 1 # NET_FW_ACTION_ALLOW
+    $rule.EdgeTraversal = $false
+    
+    $fw.Rules.Add($rule)
 }
 
 Function Convert-FWProfileType($profileCode){
