@@ -1,3 +1,4 @@
+
 . $libDir\string.ps1
 
 Describe "Check string contain ignore case" {
