@@ -1,50 +1,52 @@
-* Install required software with powershell
 
-- .NET Framework
-- Sql Server
-- VS 2010
-- Resharper
-- Asp.net MVC
-- VCS - Hg, Git
+* Done
 
-- Firefox (xiaodao - Done)
+- Add/remove feature(xiaodao)
+- Firefox (xiaodao)
+- Curl (xiaodao)
+- Notepad ++ (xiaodao)
+- Python (xiaodao & hankai)
+- disable IE 8 welcome screen (xiaodao)
+- Disable/Enable Firewall  (Xiaodao)
+- Change Environment Variables (Xiaodao)
 
-- Firefox plugin (xiaodao - Blocked)
+* Doing
 
-- 7zip (wangrui)
+- Unit test Framework (Hankai - Doing)
 
-- Curl (xiaodao -Done)
-
-- Notepad ++ (xiaodao - Done)
-
-- Java (wangrui)
-- CI agent
-- CI Server
-
-- Python (xiaodao & hankai - Done)
-
+- 7zip (hankai)
+- Java (hankai)
 - AppFabric (xiaodao & lixin - needs to add firewall rules)
 
-- disable IE 8 welcome screen ( xiaodao - Done)
+- Add/Remove Firewall Rules (Xiaodao)
 
-- disable firefox / ie /chrome/opera/safari checking default browser (blocked)
-
-* Change environment settings with powershell
-
-- Change IIS Settings(Hankai - Doing)
+- Change IIS Settings(Hankai)
   - Add/Remove WebSite
   - Add/Remove WebApplication
   - WebSite/WebApplication configration
 
-- Disable/Enable Firewall  (Xiaodao - Done)
-
-- Add/Remove Firewall Rules (Xiaodao - Blocked by AppFabric)
-
 - Window Service (Maochao - Doing)
-- Change Environment Variables (Xiaodao - Done)
+
+* ToDO
+
+- CI agent
+- CI Server
+
+- Asp.net MVC
+- VCS - Hg, Git
+
+* Change environment settings with powershell
+
 - Configuration Files
 
-* Unit test Framework (Hankai - Done)
+* Cancel & Blocked
+
+- Sql Server(canceled)
+- VS 2010(canceled)
+- Resharper(canceled)
+- Firefox plugin ( canceled )
+- disable firefox / ie /chrome/opera/safari checking default browser ( canceled)
+
 
 * Description for environment with Ruby (refer to Chef)
 

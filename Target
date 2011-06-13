@@ -1,0 +1,61 @@
+Given window 2008 R2 with sp1 installed
+
+1. Add Features: .NET 3.5, IIS, Process Activation Service
+
+2. Add Roles: IIS => Application Development => Install Asp.net
+
+
+Display Name                                            Name
+------------                                            ----
+[X] Web Server (IIS)                                    Web-Server
+    [X] Web Server                                      Web-WebServer
+        [X] Common HTTP Features                        Web-Common-Http
+            [X] Static Content                          Web-Static-Content
+            [X] Default Document                        Web-Default-Doc
+            [X] Directory Browsing                      Web-Dir-Browsing
+            [X] HTTP Errors                             Web-Http-Errors
+        [X] Application Development                     Web-App-Dev
+            [X] ASP.NET                                 Web-Asp-Net
+            [X] .NET Extensibility                      Web-Net-Ext
+            [X] ISAPI Extensions                        Web-ISAPI-Ext
+            [X] ISAPI Filters                           Web-ISAPI-Filter
+        [X] Health and Diagnostics                      Web-Health
+            [X] HTTP Logging                            Web-Http-Logging
+            [X] Request Monitor                         Web-Request-Monitor
+        [X] Security                                    Web-Security
+            [X] Request Filtering                       Web-Filtering
+        [X] Performance                                 Web-Performance
+            [X] Static Content Compression              Web-Stat-Compression
+    [X] Management Tools                                Web-Mgmt-Tools
+        [X] IIS Management Console                      Web-Mgmt-Console
+[X] .NET Framework 3.5.1 Features                       NET-Framework
+    [X] .NET Framework 3.5.1                            NET-Framework-Core
+[X] Remote Server Administration Tools                  RSAT
+    [X] Role Administration Tools                       RSAT-Role-Tools
+        [X] Web Server (IIS) Tools                      RSAT-Web-Server
+[X] Windows Process Activation Service                  WAS
+    [X] Process Model                                   WAS-Process-Model
+    [X] .NET Environment                                WAS-NET-Environment
+    [X] Configuration APIs                              WAS-Config-APIs
+
+
+3. IIS
+
+* Create Self-Signed Certificate
+
+* Create Web site (mytaxes) => physical path => binding https 
+
+* Mytaxes => SSL Settings (Require SSL)
+
+* Add Default Document (default.aspx, Default.htm, Default.asp, index.html..)
+
+* Application Pool => Advanced Settings => Process model => Identity (NetworkService)
+
+4. Firewall
+
+* new InBound Rule => Allow port 1433
+
+5. Sql Server
+
+* new login (MyTaxes:pwc123#) => map to Acom db, make it db_owner
+* Document DB: refer to https://10.18.7.11:8443/svn/#{projectname}/Doc/Deployment/Deployment%20Notes
