@@ -57,3 +57,15 @@ Describe "invoke Set-WebAppPoolManagedRuntimeVersion with valid parameter" {
         Remove-WebAppPool $testAppPoolName
      }
 }
+
+Describe "invoke Set-WebAppPoolIdentityType" {
+	It "set identity to networkservice" {
+		New-WebAppPool $testAppPoolName -force
+		Set-WebAppPoolIdentityType $testAppPoolName "NetworkService"
+		
+		$testAppPool = ls "IIS:\AppPools" | ? {$_.Name -eq $testAppPoolName }
+		$testAppPool.processModel.identityType.should.be("NetworkService")
+		
+		Remove-WebAppPool $testAppPoolName
+	}
+}
