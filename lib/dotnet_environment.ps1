@@ -1,6 +1,8 @@
 Import-Module servermanager
 
-Function Install-DotNet-3 {
+$dotnetLogPath = "C:\dotnetlog.html"
+
+Function Install-DotNet3 {
 	Add-WindowsFeature NET-Framework-Core
 }
 
@@ -10,4 +12,42 @@ Function Install-IIS {
 	Add-WindowsFeature WAS-Process-Model
 	Add-WindowsFeature WAS-NET-Environment
 	Add-WindowsFeature WAS-Config-APIs
+}
+
+Function Upgrade-To-DotNet4 {
+	If(Test-DotNet-4-Installed){
+		return
+	}
+	curl -O "http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe"
+	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
+	
+	Wait-For-DotNet-Install
+	iex "del .\dotNetFx40_Full_setup.exe"
+}
+
+Function Wait-For-DotNet-Install {
+	$seconds = 900
+	Write-Host ".Net Framework 4.0 is installing, please wait." -NoNewLine
+	$ErrorActionPreference = "SilentlyContinue"
+	
+	while (!(DotNet-Install-Completed)) {
+		Sleep 1
+		$seconds--
+		Write-Host "." -NoNewLine
+		if ($seconds -eq 0) { exit -1 }
+	}
+
+	$ErrorActionPreference = "Continue"
+	Write-Host "."
+	Write-Host ".Net Framework installation finished."
+}
+
+Function DotNet-Install-Completed {
+	 $log = ""
+	 get-content $dotnetLogPath | % { $log += $_ }
+	 $log.Contains("completed successfully.")      
+}
+
+Function Test-DotNet-4-Installed {
+	Test-Path "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0"
 }
