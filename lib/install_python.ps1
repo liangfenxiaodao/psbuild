@@ -1,6 +1,6 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\path.ps1
-. $scriptDir\unblock_file.ps1
+. $scriptDir\util.ps1
 
 $python27InstallKit = "python-2.7.1.msi"
 $pythonLogPath = "c:\python.log"

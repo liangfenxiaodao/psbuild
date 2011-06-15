@@ -1,5 +1,5 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-. $scriptDir\string.ps1
+. $scriptDir\util.ps1
 
 Function Add-To-Path($pathToBeAdded) {
 	$path = [environment]::GetEnvironmentVariable("Path","Machine")
