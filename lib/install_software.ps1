@@ -7,20 +7,44 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_python.ps1
 . $scriptDir\softwares\install_dotnet4.ps1
 
+
+
 Function Install-Software($software){
-	If(iex "$software-Installed"){
-		Write-Host "$software is already installed on this computer, will by pass installation"
-		return 
+	Given-Software-Supported $software {
+		If(iex "$software-Installed"){
+			Write-Host "$software is already installed on this computer, will by pass installation"
+			return 
+		}
+		
+		iex "Download-$software"
+		
+		Bypass-Error-Message {
+			iex "Silent-Install-$software"
+			Wait-For-Software-Install $software
+		}
+		
+		iex "Delete-Downloaded-$software"
 	}
-	
-	iex "Download-$software"
-	
-	Bypass-Error-Message {
-		iex "Silent-Install-$software"
-		Wait-For-Software-Install $software
+}
+
+Function Given-Software-Supported ($software, [ScriptBlock] $block) {
+	If(!(Software-Supported($software))) {
+		Write-Host
+		Write-Host -fore yellow "The software - $software isn't supported, we only support the softwares listed below: "
+		Write-Host
+		Supported-Softwares | % { Write-Host -fore green " " $_}
+		Write-Host
+		return
 	}
-	
-	iex "Delete-Downloaded-$software"
+	& $block
+}
+
+Function Software-Supported($software) {
+	Supported-Softwares | ? {$_ -eq $software}
+}
+
+Function Supported-Softwares {
+	ls -path "$scriptDir\softwares" -filter *.ps1 | % { $_.Name} | % {($_ -split "install_(.*).ps1", 0, "RegexMatch")[1]}
 }
 
 Function Wait-For-Software-Install($software) {
