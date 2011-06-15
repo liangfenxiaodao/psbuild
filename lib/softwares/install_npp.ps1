@@ -1,5 +1,5 @@
 Function Download-NPP {
-	curl "http://download.tuxfamily.org/notepadplus/5.9.1/npp.5.9.1.Installer.exe" -o "npp.exe"
+	iex "$scriptDir\tools\curl.exe http://download.tuxfamily.org/notepadplus/5.9.1/npp.5.9.1.Installer.exe -o npp.exe"
 }
 
 Function Silent-Install-NPP {

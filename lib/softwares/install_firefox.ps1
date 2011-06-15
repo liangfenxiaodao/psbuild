@@ -1,5 +1,5 @@
 Function Download-Firefox {
-	curl "http://mozilla.snt.utwente.nl//firefox/releases/4.0.1/win32/en-US/Firefox%20Setup%204.0.1.exe" -o "firefox.exe"
+	iex "$scriptDir\tools\curl.exe http://mozilla.snt.utwente.nl//firefox/releases/4.0.1/win32/en-US/Firefox%20Setup%204.0.1.exe -o firefox.exe"
 }
 
 Function Silent-Install-Firefox {

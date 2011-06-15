@@ -1,7 +1,7 @@
 $pythonLogPath = "c:\python.log"
 
 Function Download-Python {
-	curl "http://python.org/ftp/python/2.7.1/python-2.7.1.msi" -o "python.msi"
+	iex "$scriptDir\tools\curl.exe http://python.org/ftp/python/2.7.1/python-2.7.1.msi -o python.msi"
 	Unblock-File $python27InstallKit
 }
 

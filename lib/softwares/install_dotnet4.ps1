@@ -1,7 +1,7 @@
 $dotnetLogPath = "C:\dotnetlog.html"
 
 Function Download-DotNet4 {
-	curl -O "http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe"
+	iex "$scriptDir\tools\curl.exe -O http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe"
 }
 
 Function Silent-Install-DotNet4 {
