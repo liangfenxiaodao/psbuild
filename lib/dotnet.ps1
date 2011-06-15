@@ -35,7 +35,7 @@ Function Wait-For-DotNet-Install {
 	$seconds = 900
 	Write-Host ".Net Framework 4.0 is installing, please wait." -NoNewLine
 	
-	while (!(DotNet-Install-Completed)) {
+	while (!(DotNet-Installation-Completed)) {
 		Sleep 1
 		$seconds--
 		Write-Host "." -NoNewLine
@@ -46,7 +46,7 @@ Function Wait-For-DotNet-Install {
 	Write-Host ".Net Framework installation finished."
 }
 
-Function DotNet-Install-Completed {
+Function DotNet-Installation-Completed {
 	 $log = ""
 	 get-content $dotnetLogPath | % { $log += $_ }
 	 $log.Contains("completed successfully.")      

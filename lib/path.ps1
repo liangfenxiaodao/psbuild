@@ -8,8 +8,12 @@ Function Add-To-Path($pathToBeAdded) {
 		$path = "$path;"
 	}
 	[Environment]::SetEnvironmentVariable("Path", $path+$pathToBeAdded, "Machine")
+	Add-Path-To-Current-Process $pathToBeAdded
 }
 
+Function Add-Path-To-Current-Process($pathToBeAdded) {
+	$env.Path = $env.Path + $pathToBeAdded
+}
 Function Execute-If-Path-Not-Contains($pathToBechecked, $block) {
 	If(!(Path-Contains $pathToBechecked)) {
 		& $block

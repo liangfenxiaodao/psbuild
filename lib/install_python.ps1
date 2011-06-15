@@ -39,7 +39,7 @@ Function Wait-For-Python-Install {
 	$seconds = 120
 	Write-Host "Python is installing." -NoNewLine
 
-	while (!(Python-Install-Completed)) {
+	while (!(Python-Installation-Completed)) {
 		Sleep 1
 		$seconds--
 		Write-Host "." -NoNewLine
@@ -50,7 +50,7 @@ Function Wait-For-Python-Install {
 	Write-Host "Python installation finished."
 }
 
-Function Python-Install-Completed {
+Function Python-Installation-Completed {
 	 $log = ""
 	 get-content $pythonLogPath | % { $log += $_ }
 	 $log.Contains("completed successfully.")      
