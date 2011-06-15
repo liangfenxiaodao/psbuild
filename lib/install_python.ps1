@@ -12,10 +12,11 @@ Function Install-Python27 {
 	}
 	
 	Download-Python27
-	Prepare-LogFile
 	
+	$ErrorActionPreference = "SilentlyContinue"
 	iex ".\$python27InstallKit /quiet /li $pythonLogPath"
 	Wait-For-Python-Install
+	$ErrorActionPreference = "Continue"
 	
 	Add-To-Path "c:\python27;"
 	iex "del .\$python27InstallKit"
@@ -34,18 +35,20 @@ Function Download-Python27 {
 	Unblock-File $python27InstallKit
 }
 
-Function Prepare-LogFile {
-	Remove-Item $pythonLogPath -erroraction SilentlyContinue
-	New-Item $pythonLogPath -type file
-}
+
 Function Wait-For-Python-Install {
 	$seconds = 120
+	Write-Host "Python is installing." -NoNewLine
+
 	while (!(Python-Install-Completed)) {
 		Sleep 1
 		$seconds--
-
+		Write-Host "." -NoNewLine
 		if ($seconds -eq 0) { exit -1 }
 	}
+
+	Write-Host "."
+	Write-Host "Python installation finished."
 }
 
 Function Python-Install-Completed {

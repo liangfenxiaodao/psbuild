@@ -15,20 +15,24 @@ Function Install-IIS {
 }
 
 Function Upgrade-To-DotNet4 {
-	If(Test-DotNet-4-Installed){
+	If(DotNet-4-Installed){
 		return
 	}
 	curl -O "http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe"
-	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
 	
+	$ErrorActionPreference = "SilentlyContinue"
+	
+	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
 	Wait-For-DotNet-Install
+	
+	$ErrorActionPreference = "Continue"
+	
 	iex "del .\dotNetFx40_Full_setup.exe"
 }
 
 Function Wait-For-DotNet-Install {
 	$seconds = 900
 	Write-Host ".Net Framework 4.0 is installing, please wait." -NoNewLine
-	$ErrorActionPreference = "SilentlyContinue"
 	
 	while (!(DotNet-Install-Completed)) {
 		Sleep 1
@@ -37,7 +41,6 @@ Function Wait-For-DotNet-Install {
 		if ($seconds -eq 0) { exit -1 }
 	}
 
-	$ErrorActionPreference = "Continue"
 	Write-Host "."
 	Write-Host ".Net Framework installation finished."
 }
@@ -48,6 +51,6 @@ Function DotNet-Install-Completed {
 	 $log.Contains("completed successfully.")      
 }
 
-Function Test-DotNet-4-Installed {
+Function DotNet-4-Installed {
 	Test-Path "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0"
 }
