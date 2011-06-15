@@ -1,5 +1,8 @@
 Import-Module servermanager
 
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+. $scriptDir\util.ps1
+
 $dotnetLogPath = "C:\dotnetlog.html"
 
 Function Install-DotNet3 {
@@ -20,12 +23,10 @@ Function Upgrade-To-DotNet4 {
 	}
 	curl -O "http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe"
 	
-	$ErrorActionPreference = "SilentlyContinue"
-	
-	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
-	Wait-For-DotNet-Install
-	
-	$ErrorActionPreference = "Continue"
+	Bypass-Error-Message {
+		iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
+		Wait-For-DotNet-Install	
+	}
 	
 	iex "del .\dotNetFx40_Full_setup.exe"
 }

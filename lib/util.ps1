@@ -27,3 +27,9 @@ Function Disable-UAC {
 	$UAC = Get-Item "HKLM:\Software\Microsoft\Windows\CurrentVersion\policies\system"
 	Set-ItemProperty $UAC.PSPath -Name "EnableLUA" -Value 0
 }
+
+Function Bypass-Error-Message ($block) {
+	$ErrorActionPreference = "SilentlyContinue"
+	& $block
+	$ErrorActionPreference = "Continue"
+}
