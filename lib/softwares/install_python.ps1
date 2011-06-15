@@ -1,7 +1,3 @@
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-. $scriptDir\..\path.ps1
-. $scriptDir\..\util.ps1
-
 $pythonLogPath = "c:\python.log"
 
 Function Download-Python {

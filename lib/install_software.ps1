@@ -1,9 +1,11 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-. $scriptDir\softwares\util.ps1
+. $scriptDir\util.ps1
+. $scriptDir\path.ps1
 . $scriptDir\softwares\install_npp.ps1
 . $scriptDir\softwares\install_firefox.ps1
 . $scriptDir\softwares\install_python.ps1
+. $scriptDir\softwares\install_dotnet4.ps1
 
 Function Install-Software($software){
 	If(iex "$software-Installed"){
@@ -22,7 +24,7 @@ Function Install-Software($software){
 }
 
 Function Wait-For-Software-Install($software) {
-	$seconds = 120
+	$seconds = Get-InstallTime($software)
 	Write-Host "$software is installing." -NoNewLine
 
 	while (!(iex "$software-Installation-Completed")) {
@@ -34,4 +36,8 @@ Function Wait-For-Software-Install($software) {
 
 	Write-Host "."
 	Write-Host "$software installation finished."
+}
+
+Function Get-InstallTime($software) {
+	Get-Content "$scriptDir/softwares/supported_software" | ? { $_.StartsWith($software) } | % { $_.Split(";")[1].Trim() }
 }
