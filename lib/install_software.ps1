@@ -7,8 +7,6 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_python.ps1
 . $scriptDir\softwares\install_dotnet4.ps1
 
-
-
 Function Install-Software($software){
 	Given-Software-Supported $software {
 		If(iex "$software-Installed"){
