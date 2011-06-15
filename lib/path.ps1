@@ -14,6 +14,7 @@ Function Add-To-Path($pathToBeAdded) {
 Function Add-Path-To-Current-Process($pathToBeAdded) {
 	$env.Path = $env.Path + $pathToBeAdded
 }
+
 Function Execute-If-Path-Not-Contains($pathToBechecked, $block) {
 	If(!(Path-Contains $pathToBechecked)) {
 		& $block

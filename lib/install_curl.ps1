@@ -2,7 +2,10 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\path.ps1
 . $scriptDir\util.ps1
 
-Function Install-Curl($installToDir) {
+Function Install-Curl{
+	param(
+       [Parameter(Mandatory=1)] $installToDir
+    )
 	If(Curl-Installed) { 
 		Write-Host "Curl is already installed on this computer, will by pass Curl installation"
 		return 
