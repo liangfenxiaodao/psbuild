@@ -5,11 +5,11 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $dotnetLogPath = "C:\dotnetlog.html"
 
-Function Install-DotNet3 {
+Function Enable-DotNet3 {
 	Add-WindowsFeature NET-Framework-Core
 }
 
-Function Install-IIS {
+Function Enable-IIS {
 	Add-WindowsFeature Web-Server
 	Add-WindowsFeature Web-Asp-Net
 	Add-WindowsFeature WAS-Process-Model
@@ -17,7 +17,7 @@ Function Install-IIS {
 	Add-WindowsFeature WAS-Config-APIs
 }
 
-Function Upgrade-To-DotNet4 {
+Function Install-DotNet-4 {
 	If(DotNet-4-Installed){
 		return
 	}
