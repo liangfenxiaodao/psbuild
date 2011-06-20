@@ -4,6 +4,18 @@ function Get-WebAppPool {
     ls IIS:\AppPools
 }
 
+function New-DotNet4WebSite{
+	param(
+       [Parameter(Mandatory=1)] $SiteName,
+       [Parameter(Mandatory=1)] $PhysicalPath
+    )
+	$AppPool = $SiteName+"AppPool"
+	New-WebAppPool -Name $AppPool
+	Set-WebAppPoolManagedRuntimeVersion $AppPool "v4.0"
+	Set-WebAppPoolIdentityType $AppPool "NetworkService"
+	New-WebSite -Name $SiteName -PhysicalPath $PhysicalPath -ApplicationPool $AppPool
+}
+
 function Set-WebAppPoolManagedPipelineMode {
     param(
        [Parameter(Mandatory=1)] $AppPoolName,
