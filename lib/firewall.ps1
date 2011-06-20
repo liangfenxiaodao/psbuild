@@ -50,7 +50,7 @@ Function Get-FirewallConfig {
             | Format-Table -auto
 }
 
-Function Add-FirewallRule {
+Function Add-FirewallRule-Open-Port {
    	param( 
       	$name,
       	$tcpPorts,
