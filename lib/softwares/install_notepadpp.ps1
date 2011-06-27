@@ -11,7 +11,7 @@ Function NotepadPP-Installed {
 }
 
 Function NotepadPP-Installation-Completed {
-	NPP-Installed
+	NotepadPP-Installed
 }
 
 Function Delete-Downloaded-NotepadPP {
