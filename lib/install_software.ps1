@@ -2,7 +2,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 . $scriptDir\util.ps1
 . $scriptDir\path.ps1
-. $scriptDir\softwares\install_npp.ps1
+. $scriptDir\softwares\install_notepadpp.ps1
 . $scriptDir\softwares\install_firefox.ps1
 . $scriptDir\softwares\install_python.ps1
 . $scriptDir\softwares\install_dotnet4.ps1
