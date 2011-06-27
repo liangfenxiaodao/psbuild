@@ -12,6 +12,9 @@ Function Python27-Installed {
 }
 
 Function Silent-Install-Python27 {
+	If(!(Test-Path $pythonLogPath)){
+		New-Item $pythonLogPath
+	}
 	iex ".\python.msi /quiet /li $pythonLogPath"
 }
 

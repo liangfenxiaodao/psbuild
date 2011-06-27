@@ -16,11 +16,9 @@ Function Install-Software($software){
 		
 		iex "Download-$software"
 		
-		Bypass-Error-Message {
-			iex "Silent-Install-$software"
-			Wait-For-Software-Install $software
-		}
-		
+		iex "Silent-Install-$software"
+		Wait-For-Software-Install $software
+				
 		iex "Delete-Downloaded-$software"
 	}
 }

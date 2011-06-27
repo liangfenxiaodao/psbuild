@@ -5,6 +5,9 @@ Function Download-DotNet4 {
 }
 
 Function Silent-Install-DotNet4 {
+	If(!(Test-Path $dotnetLogPath)){
+		New-Item $dotnetLogPath
+	}
 	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
 }
 
