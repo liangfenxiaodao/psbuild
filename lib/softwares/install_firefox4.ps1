@@ -14,6 +14,6 @@ Function Firefox4-Installation-Completed {
 	Firefox-Installed
 }
 
-Function Delete-Downloaded-Firefox4 {
+Function Execute-Ending-Actions {
 	iex "del .\firefox.exe"
 }

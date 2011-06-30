@@ -21,7 +21,7 @@ Function Install-Software($software){
 		iex "Silent-Install-$software"
 		Wait-For-Software-Install $software
 				
-		iex "Delete-Downloaded-$software"
+		iex "Execute-Ending-Actions"
 	}
 }
 

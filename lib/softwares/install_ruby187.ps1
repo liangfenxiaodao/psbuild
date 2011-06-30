@@ -17,6 +17,6 @@ Function Ruby187-Installation-Completed {
     Ruby187-Installed
 }
 
-Function Delete-Downloaded-Ruby187 {
+Function Execute-Ending-Actions {
 	iex "del .\rubyinstaller.exe"
 }

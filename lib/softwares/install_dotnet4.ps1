@@ -11,7 +11,7 @@ Function Silent-Install-DotNet4 {
 	iex ".\dotNetFx40_Full_setup.exe /passive /log $dotnetLogPath"
 }
 
-Function Delete-Downloaded-DotNet4 {
+Function Execute-Ending-Actions {
 	iex "del .\dotNetFx40_Full_setup.exe"
 }
 

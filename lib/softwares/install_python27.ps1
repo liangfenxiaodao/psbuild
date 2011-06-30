@@ -25,6 +25,6 @@ Function Python27-Installation-Completed {
 	 $log.Contains("completed successfully.")      
 }
 
-Function Delete-Downloaded-Python27 {
+Function Execute-Ending-Actions {
 	iex "del .\pythoninstaller.msi"
 }

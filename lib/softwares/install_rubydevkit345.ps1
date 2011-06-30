@@ -19,7 +19,7 @@ Function RubyDevkit345-Installation-Completed {
     return $true
 }
 
-Function Delete-Downloaded-RubyDevkit345 {
+Function Execute-Ending-Actions {
 	#iex "del .\rubyinstaller.exe"
 }
 
