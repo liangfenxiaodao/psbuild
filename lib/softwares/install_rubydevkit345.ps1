@@ -21,6 +21,8 @@ Function RubyDevkit345-Installation-Completed {
 
 Function Execute-Ending-Actions {
 	WorksAt $rubydevkitInstallDir {
+		iex "ruby dk.rb init"
+		iex "ruby dk.rb install"
 		iex "del .\rubydevkit.exe"
 	}
 }
