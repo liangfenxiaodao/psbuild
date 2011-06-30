@@ -20,7 +20,9 @@ Function RubyDevkit345-Installation-Completed {
 }
 
 Function Execute-Ending-Actions {
-	#iex "del .\rubyinstaller.exe"
+	WorksAt $rubydevkitInstallDir {
+		iex "del .\rubydevkit.exe"
+	}
 }
 
 Function RubyDevkit345-Installed {
