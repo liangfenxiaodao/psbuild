@@ -33,3 +33,10 @@ Function Bypass-Error-Message ($block) {
 	& $block
 	$ErrorActionPreference = "Continue"
 }
+
+Function WorksAt($location, $action) {
+	Push-Location
+	Set-Location $location
+	& $action
+	Pop-Location
+}
