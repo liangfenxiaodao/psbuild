@@ -9,15 +9,8 @@
 - disable IE 8 welcome screen (xiaodao)
 - Disable/Enable Firewall  (Xiaodao)
 - Change Environment Variables (Xiaodao)
-
-* Doing
-
-- Unit test Framework (Hankai - Doing)
-
-- 7zip (hankai)
-- Java (hankai)
-- AppFabric (xiaodao & lixin - needs to add firewall rules)
-
+- Ruby(xiaodao)
+- RubyDevkit(xiaodao)
 - Add/Remove Firewall Rules (Xiaodao)
 
 - Change IIS Settings(Hankai)
@@ -25,7 +18,17 @@
   - Add/Remove WebApplication
   - WebSite/WebApplication configration
 
-- Window Service (Maochao - Doing)
+
+- Window Service (Maochao)
+
+
+* Doing
+
+- Unit test Framework (Hankai - Doing)
+
+- Java (hankai)
+- AppFabric (xiaodao & lixin - needs to add firewall rules)
+
 
 * ToDO
 
@@ -35,9 +38,6 @@
 - Asp.net MVC
 - VCS - Hg, Git
 
-* Change environment settings with powershell
-
-- Configuration Files
 
 * Cancel & Blocked
 
