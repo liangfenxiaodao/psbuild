@@ -17,6 +17,7 @@ Function Ruby187-Installation-Completed {
     Ruby187-Installed
 }
 
-Function Execute-Ending-Actions {
+Function Execute-Ending-Actions-For-Ruby187 {
+	sleep 5
 	iex "del .\rubyinstaller.exe"
 }

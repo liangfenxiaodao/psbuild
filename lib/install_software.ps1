@@ -7,7 +7,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_python27.ps1
 . $scriptDir\softwares\install_dotnet4.ps1
 . $scriptDir\softwares\install_ruby187.ps1
-. $scriptDir\softwares\install_rubydevkit345.ps1
+. $scriptDir\softwares\install_rubydevkit3245.ps1
 
 Function Install-Software($software){
 	Given-Software-Supported $software {
@@ -21,7 +21,7 @@ Function Install-Software($software){
 		iex "Silent-Install-$software"
 		Wait-For-Software-Install $software
 				
-		iex "Execute-Ending-Actions"
+		iex "Execute-Ending-Actions-For-$software"
 	}
 }
 

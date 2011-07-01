@@ -14,7 +14,7 @@ Function NotepadPP-Installation-Completed {
 	NotepadPP-Installed
 }
 
-Function Execute-Ending-Actions {
+Function Execute-Ending-Actions-For-NotepadPP {
 	Sleep 5
 	iex "del .\npp.exe"
 }
