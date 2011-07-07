@@ -8,6 +8,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_dotnet4.ps1
 . $scriptDir\softwares\install_ruby187.ps1
 . $scriptDir\softwares\install_rubydevkit3245.ps1
+. $scriptDir\softwares\install_flash4ie.ps1
 
 Function Install-Software($software){
 	Given-Software-Supported $software {
@@ -46,7 +47,7 @@ Function Supported-Softwares {
 }
 
 Function Wait-For-Software-Install($software) {
-	$seconds = Get-InstallTime($software)
+	$seconds = [int](Get-InstallTime($software))
 	Write-Host "$software is installing." -NoNewLine
 
 	while (!(iex "$software-Installation-Completed")) {

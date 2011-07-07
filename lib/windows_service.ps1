@@ -3,9 +3,19 @@ Function Create-Service {
        [Parameter(Mandatory=1)] $serviceName,
        [Parameter(Mandatory=1)] $binaryPathName
     )
-	$result = $False;
+	$result = $False
+	$index = $binaryPathName.IndexOf("-")
+	if($index -eq -1){
+		$path = $binaryPathName.Trim()
+	}
+	else{
+		$patb = $binaryPathName.SubString(0,$binaryPathName.IndexOf("-")).Trim()
+	}
+	if(!($path.EndsWith(".exe"))) {
+		$path += ".exe"
+	}
 	if(!(Test-Service($serviceName))){
-		if(Test-Path -Path $binaryPathName){
+		if(Test-Path -Path $path){
 			New-Service -Name $serviceName -BinaryPathName $binaryPathName
 			$result = $True
 		}
@@ -32,11 +42,14 @@ Function Delete-Service {
 	if(Test-Service($serviceName)){
 		$service = Get-WmiObject -Class Win32_Service -Filter " Name= '$serviceName'"
 		if($service.Started){
-			$service.StopService
+			$service.StopService()
+			Write-Host "Service $serviceName is stoped."
 		}
 		$deleteResult = $service.Delete()
+		Write-Host "Service Delete result code is $($deleteResult.ReturnValue)"
 		if($deleteResult.ReturnValue -eq 0){
 			$result = $True
+			Write-Host "Service $serviceName is deleted."
 		}
 	}
 	return $result
