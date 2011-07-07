@@ -7,7 +7,7 @@ Function Silent-Install-Flash4IE {
 }
 
 Function Flash4IE-Installed {
-	Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Flash4IE.exe"
+	Test-Path "C:\Windows\System32\Macromed\Flash\Flash64_10_3_162.ocx"
 }
 
 Function Flash4IE-Installation-Completed {
