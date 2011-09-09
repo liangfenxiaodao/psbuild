@@ -1,4 +1,4 @@
-This goal of this project is to apply Chef for environment configuration management on Windows Platform for .NET project.         
+This goal of this project is to apply Powershell for environment configuration management on Windows Platform       
                                
 Let's take a development team for example.
 
@@ -16,8 +16,8 @@ The team is facing the problem that:
 
 In order to resolve those problems, the team has to manage environment configuration with scripts.
 
-The steps are:
+The target is:
 
-1. Write PowerShell scripts to install software, install Windows updates, update IIS settings, install/uninstall Windows services, change firewall settings, etc.
+1. Using PowerShell scripts to install software, install Windows updates, update IIS settings, install/uninstall Windows services, change firewall settings, etc.
 
-2. Integrate the PowerShell scripts with Chef
+2. Build an abstract layer for Windows 2003 and 2008 which supports powershell, so that the functions defined on psbuild can be executed on those platforms, just like "fog".
