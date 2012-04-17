@@ -15,6 +15,7 @@ Function Unzip($filename, $unzipToDir) {
 	New-Item $unzipToDir -type directory
 
 	$destination = $shell_app.namespace($unzipToDir)
+	Write-Host $zip_file
 	$destination.Copyhere($zip_file.items())
 }
 

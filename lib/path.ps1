@@ -15,6 +15,7 @@ Function Add-Path-To-Current-Process($pathToBeAdded) {
 	$env:Path = $env:Path + ";" + $pathToBeAdded
 }
 
+
 Function Execute-If-Path-Not-Contains($pathToBechecked, $block) {
 	If(!(Path-Contains $pathToBechecked)) {
 		& $block
@@ -24,4 +25,10 @@ Function Execute-If-Path-Not-Contains($pathToBechecked, $block) {
 Function Path-Contains($pathToBechecked) {
 	$path = [environment]::GetEnvironmentVariable("Path","Machine")
 	return Contains-IgnoreCase $path $pathToBechecked
+}
+
+
+Function Add-Maven-Variable($envValue){
+	[Environment]::SetEnvironmentVariable("M2_HOME", $envValue, "Machine")
+	$env:M2_HOME = $envValue
 }
