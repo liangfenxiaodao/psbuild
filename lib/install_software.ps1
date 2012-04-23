@@ -10,6 +10,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_rubydevkit3245.ps1
 . $scriptDir\softwares\install_flash4ie.ps1
 . $scriptDir\softwares\install_maven304.ps1
+. $scriptDir\softwares\install_chrome.ps1
 
 Function Install-Software($software){
 	Given-Software-Supported $software {
