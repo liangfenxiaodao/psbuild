@@ -6,6 +6,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . $scriptDir\softwares\install_firefox11.ps1
 . $scriptDir\softwares\install_python27.ps1
 . $scriptDir\softwares\install_dotnet4.ps1
+. $scriptDir\softwares\install_dotnet45.ps1
 . $scriptDir\softwares\install_ruby187.ps1
 . $scriptDir\softwares\install_rubydevkit3245.ps1
 . $scriptDir\softwares\install_flash4ie.ps1
@@ -23,8 +24,11 @@ Function Install-Software($software){
 		
 		iex "Silent-Install-$software"
 		Wait-For-Software-Install $software
-				
-		iex "Execute-Ending-Actions-For-$software"
+		
+		$endingAction = Get-Command -Module ChefDotNet | % { $_.Name } | ? { $_ -eq "Execute-Ending-Action-For-$software }
+		if ($endingAction) {
+		    iex "Execute-Ending-Actions-For-$software"	
+		}
 	}
 }
 
