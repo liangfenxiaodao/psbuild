@@ -5,6 +5,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 ls $scriptDir\softwares -filter install_* | % { . $_.FullName }
 
 Function Install-Software($software){
+	Prepare-Repo
 	Given-Software-Supported $software {
 		if (iex "$software-Installed"){
 			Write-Host "$software is already installed on this computer, will by pass installation"
@@ -59,4 +60,11 @@ Function Wait-For-Software-Install($software) {
 
 Function Get-InstallTime($software) {
 	Get-Content "$scriptDir/softwares/supported_software" | ? { $_.StartsWith($software) } | % { $_.Split(";")[1].Trim() }
+}
+
+Function Prepare-Repo {
+	$repo = "$home/.psbuild_repo"
+	if (-not (Test-Path "$repo")) {
+		mkdir $repo
+	} 
 }
