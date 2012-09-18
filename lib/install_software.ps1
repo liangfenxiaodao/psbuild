@@ -2,33 +2,23 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 . $scriptDir\util.ps1
 . $scriptDir\path.ps1
-. $scriptDir\softwares\install_notepadpp.ps1
-. $scriptDir\softwares\install_firefox11.ps1
-. $scriptDir\softwares\install_python27.ps1
-. $scriptDir\softwares\install_dotnet4.ps1
-. $scriptDir\softwares\install_dotnet45.ps1
-. $scriptDir\softwares\install_ruby187.ps1
-. $scriptDir\softwares\install_rubydevkit3245.ps1
-. $scriptDir\softwares\install_flash4ie.ps1
-. $scriptDir\softwares\install_maven304.ps1
-. $scriptDir\softwares\install_chrome.ps1
+ls $scriptDir\softwares -filter install_* | % { . $_.FullName }
 
 Function Install-Software($software){
 	Given-Software-Supported $software {
-		If(iex "$software-Installed"){
+		if (iex "$software-Installed"){
 			Write-Host "$software is already installed on this computer, will by pass installation"
 			return 
 		}
 		
 		iex "Download-$software"
-		
 		iex "Silent-Install-$software"
 		Wait-For-Software-Install $software
-		
-		$endingAction = Get-Command -Module ChefDotNet | % { $_.Name } | ? { $_ -eq "Execute-Ending-Action-For-$software }
+
+		$endingAction = Get-Command -Module ChefDotNet | % { $_.Name } | ? { $_ -eq "Execute-Ending-Action-For-$software" }
 		if ($endingAction) {
 		    iex "Execute-Ending-Actions-For-$software"	
-		}
+        }
 	}
 }
 

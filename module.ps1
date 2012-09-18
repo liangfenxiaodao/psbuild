@@ -1,7 +1,7 @@
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $moduleDir = "$root\ChefDotNet"
 
-Remove-Item $moduleDir -r -ErrorAction SilentlyContinue
+rm $moduleDir -Recurse -Force -ErrorAction SilentlyContinue
 mkdir "$moduleDir"
 mkdir "$moduleDir\lib"
 cp -r "$root\lib\*" "$moduleDir\lib"
