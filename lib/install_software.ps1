@@ -2,7 +2,7 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 . $scriptDir\util.ps1
 . $scriptDir\path.ps1
-ls $scriptDir\softwares -filter install_* | % { Write-Host "Loading $_.FullName";  . $_.FullName }
+ls $scriptDir\softwares -filter install_* | % { . $_.FullName }
 
 Function Install-Software($software){
 	Prepare-Repo
