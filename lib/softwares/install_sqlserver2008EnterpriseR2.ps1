@@ -4,7 +4,7 @@ $installer = "sqlserver2008_enterprise_r2\setup.exe"
 
 Function Download-SqlServer2008EnterpriseR2 {
 	if (-not (Test-Path "$repo\$installer")) {
-		throw "Can't find sqlserver 2008 enterprise r2 installer under $repo."
+		throw "Can't find sqlserver 2008 enterprise r2 installer $installer."
 	}
 }
 
