@@ -22,9 +22,7 @@ Function DotNet45-Installation-Completed {
 
 Function DotNet45-Installed {
     $key = "hklm:\software\microsoft\NET Framework Setup\NDP\v4\Full"
-	if (-not (Test-Path $key)) { 
-		return $false 
-	}
+	if (-not (Test-Path $key)) { return $false }
 
     $install = (gp $key).Install
     $version = (gp $key).Version
