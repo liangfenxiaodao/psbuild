@@ -1,4 +1,4 @@
-$repo = "$home/.psbuild_repo"
+$repo = "$home\.psbuild_repo"
 
 $packageName = "dotnetfx45_full_x86_x64.exe"
 

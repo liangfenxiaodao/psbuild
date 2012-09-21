@@ -1,8 +1,6 @@
-$repo = "$home/.psbuild_repo"
+$repo = "$home\.psbuild_repo"
 
-$packageName = "Firefox Setup 3.6.28.exe"
-
-$current = 
+$packageName = "Firefox_Setup_3.6.28.exe"
 
 Function Download-Firefox36 {
 	if (Test-Path "$repo\$packageName") {
