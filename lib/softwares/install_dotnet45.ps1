@@ -28,10 +28,3 @@ Function DotNet45-Installed {
     $version = (gp $key).Version
     return (($install -eq 1) -and ($version -eq "4.5.50709"))
 }
-
-# Dosen't work right now
-Function UnInstall-DotNet45 {
-	$winnt = $env:windir
-	iex "$env:windir\Microsoft.NET\Framework64\v4.0.30319\SetupCache\Extended\setup.exe /uninstall /x86 /x64 /ia64 /parameterfolder Extended /passive /norestart"
-	iex "$env:windir\Microsoft.NET\Framework64\v4.0.30319\SetupCache\Client\setup.exe /uninstall /x86 /x64 /parameterfolder Client /passive /norestart"
-}
