@@ -1,16 +1,16 @@
 $repo = "$home\.psbuild_repo"
 
-$packageName = "Firefox_Setup_3.6.28.exe"
+$firfoxInstaller = "Firefox_Setup_3.6.28.exe"
 
 Function Download-Firefox36 {
-	if (Test-Path "$repo\$packageName") {
+	if (Test-Path "$repo\$firfoxInstaller") {
 		return
 	}
-	cp "\\10.18.1.16\Share\User\khan\$packageName" "$repo"
+	cp "\\10.18.1.16\Share\User\khan\$firfoxInstaller" "$repo"
 }
 
 Function Silent-Install-Firefox36 {
-	iex "$repo\$packageName -ms"
+	iex "$repo\$firfoxInstaller -ms"
 }
 
 Function Firefox36-Installed {

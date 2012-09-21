@@ -1,19 +1,19 @@
 $repo = "$home\.psbuild_repo"
 
-$packageName = "dotnetfx45_full_x86_x64.exe"
+$dotNet45Installer = "dotnetfx45_full_x86_x64.exe"
 
 Function Download-DotNet45 {
-	if (Test-Path "$repo/$packageName") {
+	if (Test-Path "$repo/$dotNet45Installer") {
 		return
 	}
 
 	Write-Host "Start downloading .Net Framework 4.5 ..."
-	iex "$scriptDir\tools\curl.exe http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/$packageName -o $repo/$packageName" 
+	iex "$scriptDir\tools\curl.exe http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/$dotNet45Installer -o $repo/$dotNet45Installer" 
 }
 
 Function Silent-Install-DotNet45 {
 	Write-Host "Start installing .Net Framework 4.5"
-	iex "$repo/$packageName /q /norestart"
+	iex "$repo/$dotNet45Installer /q /norestart"
 }
 
 Function DotNet45-Installation-Completed {
