@@ -11,7 +11,7 @@ Function Firefox11-Installed {
 }
 
 Function Firefox11-Installation-Completed {
-	Firefox-Installed
+	Firefox11-Installed
 }
 
 Function Execute-Ending-Actions-For-Firefox11 {
